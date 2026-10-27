@@ -1,0 +1,7 @@
+[
+  { "_id": "F101", "airline": "IndiGo",    "source": "Chennai", "destination": "Delhi",     "price": 6500 },
+  { "_id": "F102", "airline": "Air India", "source": "Mumbai",  "destination": "Chennai",   "price": 4800 },
+  { "_id": "F103", "airline": "SpiceJet",  "source": "Chennai", "destination": "Kolkata",   "price": 5200 },
+  { "_id": "F104", "airline": "Vistara",   "source": "Delhi",   "destination": "Bengaluru", "price": 7200 },
+  { "_id": "F105", "airline": "Akasa Air", "source": "Chennai", "destination": "Pune",      "price": 3900 }
+]

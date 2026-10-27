@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reaction Click Game</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f5f0e8;
+            text-align:center;
+            padding-top:50px;
+        }
+
+        h1{
+            color:#5D4037;
+        }
+
+        .game-area{
+            width:600px;
+            height:400px;
+            margin:20px auto;
+            border:2px solid #BCAAA4;
+            background:white;
+            position:relative;
+            border-radius:10px;
+        }
+
+        .target{
+            width:60px;
+            height:60px;
+            background:#A1887F;
+            border-radius:50%;
+            position:absolute;
+            cursor:pointer;
+            display:none;
+        }
+
+        button{
+            padding:10px 20px;
+            border:none;
+            background:#BCAAA4;
+            color:#3E2723;
+            cursor:pointer;
+            border-radius:6px;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#A1887F;
+        }
+
+        .info{
+            font-size:20px;
+            margin:15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🎯 Reaction Click Game</h1>
+
+<div class="info">
+    Time: <span id="time">10</span> sec |
+    Score: <span id="score">0</span>
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<div class="game-area">
+    <div class="target" id="target"></div>
+</div>
+
+<h2 id="result"></h2>
+
+<script>
+let score = 0;
+let timeLeft = 10;
+let gameTimer;
+let running = false;
+
+const target = document.getElementById("target");
+
+function moveTarget() {
+
+    const x = Math.random() * 520;
+    const y = Math.random() * 320;
+
+    target.style.left = x + "px";
+    target.style.top = y + "px";
+    target.style.display = "block";
+}
+
+target.addEventListener("click", () => {
+
+    if(!running) return;
+
+    score++;
+
+    document.getElementById("score").innerText = score;
+
+    moveTarget();
+});
+
+function startGame() {
+
+    score = 0;
+    timeLeft = 10;
+
+    running = true;
+
+    document.getElementById("score").innerText = score;
+    document.getElementById("time").innerText = timeLeft;
+    document.getElementById("result").innerText = "";
+
+    moveTarget();
+
+    clearInterval(gameTimer);
+
+    gameTimer = setInterval(() => {
+
+        timeLeft--;
+
+        document.getElementById("time").innerText = timeLeft;
+
+        if(timeLeft <= 0){
+
+            clearInterval(gameTimer);
+
+            target.style.display = "none";
+
+            running = false;
+
+            document.getElementById("result").innerHTML =
+                "🏆 Game Over! Your Score: " + score;
+        }
+
+    },1000);
+}
+</script>
+
+</body>
+</html>

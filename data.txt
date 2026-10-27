@@ -1,0 +1,34 @@
+rayaudrey@Ray-DellLatitude7410:/mnt/d/apache-tomcat-9.0.123/webapps/DatabaseServlet1$ javac -cp "/mnt/d/apache-tomcat-9.0.123/lib/servlet-api.jar:/mnt/d/apache-tomcat-9.0.123/webapps/DatabaseServlet1/WEB-INF/lib/mysql-connec
+tor-j-26.7.0.jar" -d "/mnt/d/apache-tomcat-9.0.123/webapps/DatabaseServlet1/WEB-INF/classes" DatabaseServlet1.ja
+va
+
+db.Leaves.insertMany([
+  { _id: "L101", employeeId: "E101", leaveType: "Sick",   days: 3 },
+  { _id: "L102", employeeId: "E102", leaveType: "Casual", days: 4 },
+  { _id: "L103", employeeId: "E103", leaveType: "Earned", days: 5 },
+  { _id: "L104", employeeId: "E104", leaveType: "Casual", days: 3 }
+])
+db.Employees.insertMany([
+  { _id: "E101", name: "Arun",  department: "CSE", salary: 40000 },
+  { _id: "E102", name: "Priya", department: "IT",  salary: 50000 },
+  { _id: "E103", name: "Kumar", department: "CSE", salary: 35000 },
+  { _id: "E104", name: "Divya", department: "ECE", salary: 45000 }
+])
+use Work
+
+db.Flights.insertMany([
+  { _id: "F101", airline: "IndiGo",    source: "Chennai", destination: "Delhi",     price: 6500 },
+  { _id: "F102", airline: "Air India", source: "Mumbai",  destination: "Chennai",   price: 4800 },
+  { _id: "F103", airline: "SpiceJet",  source: "Chennai", destination: "Kolkata",   price: 5200 },
+  { _id: "F104", airline: "Vistara",   source: "Delhi",   destination: "Bengaluru", price: 7200 },
+  { _id: "F105", airline: "Akasa Air", source: "Chennai", destination: "Pune",      price: 3900 }
+])
+
+db.ScheduledFlights.insertMany([
+  { _id: "S1", flightId: "F101", departureDate: "2026-11-01", status: "On-Time",   seatsAvailable: 60 },
+  { _id: "S2", flightId: "F101", departureDate: "2026-11-03", status: "Delayed",   seatsAvailable: 70 },
+  { _id: "S3", flightId: "F102", departureDate: "2026-11-02", status: "Delayed",   seatsAvailable: 40 },
+  { _id: "S4", flightId: "F103", departureDate: "2026-11-04", status: "On-Time",   seatsAvailable: 55 },
+  { _id: "S5", flightId: "F104", departureDate: "2026-11-05", status: "On-Time",   seatsAvailable: 50 },
+  { _id: "S6", flightId: "F105", departureDate: "2026-11-06", status: "Cancelled", seatsAvailable: 30 }
+])

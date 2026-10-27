@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circular Emoji List</title>
+</head>
+<body>
+    <h2>Circular Emoji List</h2>
+
+    <h1 id="emoji">😀</h1>
+    <p id="position">First Emoji</p>
+
+    <button onclick="nextEmoji()">Next</button>
+
+    <script>
+        let emojis = ["😀", "😂", "😍", "😎"];
+        let index = 0;
+
+        function displayEmoji()
+        {
+            document.getElementById("emoji").innerHTML = emojis[index];
+
+            if(index == 0)
+            {
+                document.getElementById("position").innerHTML = "First Emoji";
+            }
+            else if(index == emojis.length - 1)
+            {
+                document.getElementById("position").innerHTML = "Last Emoji";
+            }
+            else
+            {
+                document.getElementById("position").innerHTML =
+                    "Emoji " + (index + 1);
+            }
+        }
+
+        function nextEmoji()
+        {
+            index = (index + 1) % emojis.length;
+            displayEmoji();
+        }
+    </script>
+</body>
+</html>

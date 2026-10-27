@@ -1,0 +1,70 @@
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background: #f8f9fa;
+  color: #333;
+}
+
+nav a {
+  margin-right: 12px;
+  text-decoration: none;
+  color: #444;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a.router-link-exact-active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+th {
+  background: #eee;
+}
+
+form {
+  margin: 12px 0;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form label {
+  margin-right: 10px;
+}
+
+input, select, button {
+  margin-right: 6px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #eee;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+input:focus, select:focus {
+  outline: 1px solid #007bff;
+}

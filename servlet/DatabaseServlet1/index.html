@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+</head>
+<body>
+    <h2>Insert Student</h2>
+    <form action="hello" method="post">
+    <input type="hidden" name="action" value="insert">
+        Name:
+        <input type="text" name="name" required>
+        Id:
+        <input type="number" name="id" required>
+        <button type="submit">Insert</button>
+    </form>
+
+    <hr>
+
+    <h2>Retrieve Student Records</h2>
+    <form action="hello" method="get">
+        <button type="submit">Retrieve</button>
+    </form>
+
+    <hr>
+
+    <h2>Update Student</h2>
+    <form action="hello" method="post">
+    <input type="hidden" name="action" value="update">
+        Existing ID:
+        <input type="number" name="oldId" required>
+        New Name:
+        <input type="text" name="name" required>
+        New ID:
+        <input type="number" name="id" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <hr>
+
+    <h2>Delete Student</h2>
+    <form action="hello" method="post">
+    <input type="hidden" name="action" value="delete">
+        Student ID:
+        <input type="number" name="id" required>
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>

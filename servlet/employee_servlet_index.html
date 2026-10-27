@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+</head>
+<body>
+
+    <h2>Employee Management</h2>
+
+    <h3>Insert Employee</h3>
+    <form action="EmployeeServlet" method="post">
+        ID: <input type="text" name="id" required><br><br>
+        Name: <input type="text" name="name" required><br><br>
+        Salary: <input type="text" name="salary" required><br><br>
+
+        <button type="submit" name="action" value="insert">
+            Insert
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>Delete Employee</h3>
+    <form action="EmployeeServlet" method="post">
+        ID: <input type="text" name="id" required><br><br>
+
+        <button type="submit" name="action" value="delete">
+            Delete
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>Update Employee</h3>
+    <form action="EmployeeServlet" method="post">
+        Old ID: <input type="text" name="oldId" required><br><br>
+        New ID: <input type="text" name="id" required><br><br>
+        Name: <input type="text" name="name" required><br><br>
+        Salary: <input type="text" name="salary" required><br><br>
+
+        <button type="submit" name="action" value="update">
+            Update
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>View All Employees</h3>
+    <form action="EmployeeServlet" method="get">
+        <button type="submit">
+            View All Employees
+        </button>
+    </form>
+
+</body>
+</html>

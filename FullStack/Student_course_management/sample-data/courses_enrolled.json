@@ -1,0 +1,8 @@
+[
+  { "_id": "C1", "studentId": "S101", "courseName": "Data Structures", "credits": 4, "status": "Completed" },
+  { "_id": "C2", "studentId": "S101", "courseName": "Databases",       "credits": 3, "status": "Ongoing" },
+  { "_id": "C3", "studentId": "S102", "courseName": "Signals",         "credits": 4, "status": "Dropped" },
+  { "_id": "C4", "studentId": "S103", "courseName": "Algorithms",      "credits": 4, "status": "Completed" },
+  { "_id": "C5", "studentId": "S104", "courseName": "Thermodynamics",  "credits": 2, "status": "Ongoing" },
+  { "_id": "C6", "studentId": "S105", "courseName": "Operating Systems","credits": 3, "status": "Dropped" }
+]

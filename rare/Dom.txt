@@ -1,0 +1,220 @@
+Example for node object
+<html>
+    <head>
+    <script>
+        function fun(){
+            var n=document.createElement("li");
+            var li_txt=document.createTextNode("Three");
+            n.appendChild(li_txt);
+            //window.alert(li);
+            var four=document.getElementById("F");
+            var ol=document.getElementById("o");
+            ol.appendChild(n);
+            //four.parentNode.insertBefore(n,four);
+        }
+    </script>
+    </head>
+    <body>
+     <ol id="o">
+        <li>One</li>
+        <li>Two</li>
+        <li id="F">Four</li>
+     </ol>
+     <input type="button" value="Click Me" onclick="fun()">
+    </body>
+</html>
+
+Collapse Elements
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Toggle</title>
+    <script>
+        function fun(o)
+        {
+            var button=document.createElement("button");
+            button.textContent="Click to Collapse";
+            o.before(button);
+            button.onclick = function()
+            {
+                fun1(o, button);
+            }
+        }
+        function fun1(o, button)
+        {
+            if(o.style.display == "block")
+            {
+                o.style.display = "none";
+                button.textContent = "Click to Expand";
+            }
+            else
+            {
+                o.style.display = "block";
+                button.textContent = "Click to Collapse";
+            }
+        }        
+    </script>
+</head>
+<body onload="fun(o)">
+    <ol id="o">
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ol>
+</body>
+</html>
+Ex3: Swapping of List Items
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <script>
+            function fun(elt)
+            {
+                //var li=document.getElementById(eltId);
+                var nextItem=elt.nextSibling;
+                elt.parentNode.removeChild(nextItem);
+                elt.parentNode.insertBefore(nextItem,elt);
+            }
+        </script>
+    </head>
+    <body>
+  <ol>
+    <li onclick="fun(this)">First Element</li>
+    <li onclick="fun(this)">Second Element</li>
+    <li onclick="fun(this)">Third Element</li>
+  </ol>        
+    </body>
+</html>
+
+Ex: 4: Example for Mouseover and Mouseout events
+<head>
+    <title>
+        First JS Example
+    </title>
+    <script>
+    function On()
+    {
+        document.getElementById('i1').src="bulbon.jpg";
+    }
+    function Off()
+    {
+        document.getElementById('i1').src="bulboff.jpg";
+    }           
+    </script>            
+</head>
+<body>
+<img src="bulboff.jpg" id="i1" onmouseover="On()" onmouseout="Off()">
+</body>
+</html>
+
+Ex5: Event Properties
+
+<html>
+    <head>
+        <script>
+            function fun(elt)
+            {
+                console.log(event.type);
+                console.log(event.target.nodeName);
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button onclick="fun(this)">Click Me</button>
+      
+    </body>
+</html>
+
+Ex 6: Mouse Trail Program
+<!DOCTYPE html>
+<html>
+    <head><title>Mouse Trail</title>
+        <style>
+
+.happyTrail {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f00;
+  border-radius: 80%;  
+}
+        </style>
+    </head>
+    <body>     
+    <script>
+    function trail (e) {
+	var div = document.createElement('div');  
+    div.className="happyTrail";
+  
+  Object.assign(div.style, {
+    top: e.clientY + 'px',
+    left: e.clientX + 'px'
+  });
+  
+  document.body.appendChild(div);
+  setTimeout(function(){document.body.removeChild(div)}, 1000);
+}
+
+addEventListener('mousemove', trail);
+                </script>
+    </body>
+</html>
+
+Ex. 7: Example for Countdown
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2 id="time">10</h2>
+<script>
+let num = 10;
+function countdown()
+{
+    document.getElementById("time").textContent = num;
+    num--;
+    if(num < 0)
+    {
+        clearInterval(timer);
+        document.getElementById("time").textContent = "Time Up!";
+    }
+}
+let timer = setInterval(countdown, 1000);
+</script>
+</body>
+</html>
+Ex. 8: 
+Create an unordered list dynamically containing the menu items "Home", "About", "Services", and "Contact" from Array. After creating the list, register a click event listener for each list item. When a user clicks a menu item, display its name in an alert box.
+
+<!DOCTYPE html>
+<html>
+<body>
+<ul id="menu"></ul>
+<script>
+
+let items = ["Home", "About", "Services", "Contact"];
+let ul = document.getElementById("menu");
+// Create the list
+for(let i=0; i<items.length; i++)
+{
+    let li = document.createElement("li");
+    li.textContent = items[i];
+    ul.appendChild(li);
+}
+
+// Register event listeners
+let list = document.querySelectorAll("#menu li");
+for(let i=0; i<list.length; i++)
+{
+    list[i].addEventListener("click", showItem);
+}
+function showItem()
+{
+    alert(this.textContent);
+}
+</script>
+</body>
+</html>

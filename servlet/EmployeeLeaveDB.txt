@@ -1,0 +1,31 @@
+use EmployeeLeaveDB
+
+db.employees.insertMany([
+    {
+        id: "E101",
+        name: "Arun",
+        department: "CSE",
+        email: "arun@example.com"
+    },
+    {
+        id: "E102",
+        name: "Priya",
+        department: "IT",
+        email: "priya@example.com"
+    }
+])
+
+db.leave_requests.insertMany([
+    {
+        id: "E101",
+        leaveType: "Casual Leave",
+        status: "Pending",
+        days: 2
+    },
+    {
+        id: "E102",
+        leaveType: "Medical Leave",
+        status: "Approved",
+        days: 3
+    }
+])

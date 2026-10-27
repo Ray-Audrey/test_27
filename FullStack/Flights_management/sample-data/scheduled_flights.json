@@ -1,0 +1,8 @@
+[
+  { "_id": "S1", "flightId": "F101", "departureDate": "2026-11-01", "status": "On-Time",   "seatsAvailable": 60 },
+  { "_id": "S2", "flightId": "F101", "departureDate": "2026-11-03", "status": "Delayed",   "seatsAvailable": 70 },
+  { "_id": "S3", "flightId": "F102", "departureDate": "2026-11-02", "status": "Delayed",   "seatsAvailable": 40 },
+  { "_id": "S4", "flightId": "F103", "departureDate": "2026-11-04", "status": "On-Time",   "seatsAvailable": 55 },
+  { "_id": "S5", "flightId": "F104", "departureDate": "2026-11-05", "status": "On-Time",   "seatsAvailable": 50 },
+  { "_id": "S6", "flightId": "F105", "departureDate": "2026-11-06", "status": "Cancelled", "seatsAvailable": 30 }
+]

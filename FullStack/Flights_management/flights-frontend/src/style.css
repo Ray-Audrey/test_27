@@ -1,0 +1,82 @@
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+nav {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  margin-right: 12px;
+  text-decoration: none;
+  color: #444;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a.router-link-exact-active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 12px;
+  width: 100%;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f2f5;
+}
+
+tr:hover {
+  background-color: #f5f8fc;
+}
+
+form {
+  margin: 16px 0;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+form label {
+  margin-right: 10px;
+}
+
+input, select, button {
+  margin-right: 6px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #f0f2f5;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e0e5eb;
+}
+
+input:focus, select:focus {
+  outline: 1px solid #007bff;
+  border-color: #007bff;
+}

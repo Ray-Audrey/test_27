@@ -1,0 +1,401 @@
+CSS Positioning
+CSS Positioning:
+Static: Element will be placed in default position
+Relative: Element will be placed relative to default position
+Fixed: Element always stays in the same place even if the page is scrolled
+Absolute: Element is positioned relative to the nearest positioned ancestor (with position other than static).
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.GP {
+  position: relative;
+  padding: 20px;
+  width: 600px;
+  height: 400px;
+  border: 3px solid orange;
+} 
+
+div.relative {
+  padding: 20px;
+  margin:10px;
+  width: 400px;
+  height: 200px;
+  border: 3px solid green;
+} 
+
+div.absolute {
+  position: absolute;
+  top: 250px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid red;
+}
+</style>
+</head>
+<body>
+
+<h2>Using position: absolute;</h2>
+
+<p>An element with position: absolute; is positioned relative to the nearest positioned ancestor:</p>
+<div class="GP">GranParent
+<div class="relative">This div element has position: relative;
+  <div class="absolute">This div element has position: absolute;</div>
+</div>
+</div>
+
+</body>
+</html>
+
+ 
+Sticky: Element toggles between a relative and fixed position, depending on the scroll position.
+
+
+CSS3 Examples
+Transformation 
+The CSS transform property you to rotate, scale, move, and skew elements.
+Transform Example 1
+The translate() function moves an element from its current position (according to the parameters given for the X-axis and the Y-axis).
+The following example moves the <div> element 50 pixels to the right, and 100 pixels down from its current position:
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: translate(50px,100px);
+}
+</style>
+</head>
+<body>
+<h1>The translate() Method</h1>
+<p>The translate() method moves an element from its current position:</p>
+<div>
+This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+</div>
+</body>
+</html>
+
+
+ 
+
+Transform Example 2
+The CSS rotate() Function
+The rotate() function rotates an element clockwise or counter-clockwise according to a given degree.
+The following example rotates the <div> element clockwise with 20 degrees:
+  
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  border: 1px solid black;
+}
+#myDiv {
+  transform: rotate(30deg);
+}
+</style>
+</head>
+<body>
+<h1>The rotate() Method</h1>
+<p>The rotate() method rotates an element clockwise or counter-clockwise.</p>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv">
+This div element is rotated clockwise 30 degrees.
+</div>
+</body>
+</html>
+ 
+Transform Example 3:
+
+The CSS scale() Function
+The scale() function increases or decreases the size of an element (according to the parameters given for the width and height).
+The following example increases the <div> element to be two times of its original width, and three times of its original height:
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  margin: 160px;
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: scale(2,3);
+}
+</style>
+</head>
+<body>
+<h1>The scale() Method</h1>
+<p>The scale() method increases or decreases the size of an element.</p>
+<div>
+This div element is two times of its original width, and three times of its original height.
+</div>
+</body>
+</html>
+ 
+The following example decreases the <div> element to be half of its original width and height:
+Example
+div {
+  transform: scale(0.5, 0.5);
+}
+The CSS scaleX() Function
+The scaleX() function increases or decreases the width of an element.
+The following example increases the <div> element to be two times of its original width:
+
+Example
+div {
+  transform: scaleX(2);
+}
+The following example decreases the <div> element to be half of its original width:
+Example
+div {
+  transform: scaleX(0.5);
+}
+The CSS scaleY() Function
+The scaleY() function increases or decreases the height of an element.
+The following example increases the <div> element to be three times of its original height:
+Example
+div {
+  transform: scaleY(3);
+}
+The following example decreases the <div> element to be half of its original height:
+
+Example
+div {
+  transform: scaleY(0.5);
+}
+
+Transform Example 4:
+The CSS skewX() Function
+The skewX() function skews an element along the X-axis by the given angle.
+The following example skews the <div> element 20 degrees along the X-axis:
+Example
+div {
+  transform: skewX(20deg);
+}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  border: 1px solid black;
+}
+#myDiv {
+  transform: skewX(20deg);
+}
+</style>
+</head>
+<body>
+<h1>The skewX() Method</h1>
+<p>The skewX() method skews an element along the X-axis by the given angle.</p>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv">
+This div element is skewed 20 degrees along the X-axis.
+</div>
+</body>
+</html>
+ 
+CSS Transition
+	Trigger-based: Require an external trigger to start the event
+	Two states only: Animate from an initial state to a final state without intermediate steps 
+	Single run: Run once per trigger and cannot loop naturally 
+CSS Animation
+	Automatic or manual start: Animations can start automatically without user interaction 
+	Multiple keyframes: Use @keyframes to define multiple intermediate states, allowing complex sequences 
+	Looping: Can repeat indefinitely or a set number of times using animation-iteration-count 
+
+Transition Example 1
+CSS transitions allows you to change property values smoothly, over a given duration.
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: width 2s, height 4s, background-color 3s;
+}
+div:hover {
+  width: 300px;
+  height: 300px;
+  background-color: orange;
+}
+</style>
+</head>
+<body>
+<h1>The transition Property</h1>
+<p>Hover over the div element below, to see the transition effect:</p>
+<div></div>
+</body>
+</html>
+
+ 
+Transition Example 2
+The transition-timing-function property specifies the speed curve of the transition effect.
+•	ease - transition will start slow, then go fast, and end slow (this is default)
+•	linear - transition will keep the same speed from start to end
+•	ease-in - transition will start slow
+•	ease-out - transition will end slow
+•	ease-in-out - transition will have a slow start and end
+
+<html>
+<head>
+<style>
+div {     width: 100px;     height: 100px;     background: red;  transition: width 2s; }
+/* Standard syntax */
+#div1 {transition-timing-function: linear;}
+#div2 {transition-timing-function: ease;}
+#div3 {transition-timing-function: ease-in;}
+#div4 {transition-timing-function: ease-out;}
+#div5 {transition-timing-function: ease-in-out;}
+div:hover {     width: 300px; }
+</style>
+</head>
+<body>
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+<div id="div1">linear</div><br>
+<div id="div2">ease</div><br>
+<div id="div3">ease-in</div><br>
+<div id="div4">ease-out</div><br>
+<div id="div5">ease-in-out</div><br>
+<p>Hover over the div elements above, to see the different speed curves.</p>
+</body>
+</html>
+ 
+
+Transition + Transformation
+<html>
+<head>
+<style>
+div {      position: absolute; top: 100px; left:100px; width: 100px;     height: 100px;     background: red; 	     transition: width 2s, height 2s, transform 2s;  	}
+div:hover {     width: 300px;     height: 300px; 
+			transform: rotate(180deg); 		}
+</style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
+
+ 
+
+What are CSS Animations?
+An animation lets an element gradually change from one style to another.
+You can change as many CSS properties you want, as many times as you want.
+To use CSS animation, you must specify some keyframes for the animation.
+Keyframes hold what styles the element will have at certain times.
+CSS animation-name and animation-duration
+The animation-name property specifies a name for the animation.
+The animation-duration property defines how long an animation should take to complete. If this property is not specified, no animation will occur, because the default value is 0s (0 seconds).
+CSS @keyframes Rule
+When you specify CSS styles inside the @keyframes rule, the animation will gradually change from the current style to the new style at certain times.
+To get an animation to work, you must bind the animation to an element.
+The following example binds the "myAnimation" animation to the <div> element. The animation will last for 4 seconds, and it will gradually change the background-color of the <div> element from "red" to "yellow":
+
+Animation Example 1
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: myAnimation;
+  animation-duration: 4s;
+}
+@keyframes myAnimation {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+</style>
+</head>
+<body>
+<h1>CSS Animation</h1>
+<div></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+</body>
+</html>
+
+ 
+
+Animation Example 2
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: myAnimation;
+  animation-duration: 4s;
+}
+@keyframes myAnimation {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+</style>
+</head>
+<body>
+<h1>CSS Animation</h1>
+<div></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+</body>
+</html>
+
+ 
+Animation Example 3
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: myAnimation;
+  animation-duration: 4s;
+  animation-delay: 2s;
+animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+@keyframes myAnimation {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+</style>
+</head>
+<body>
+<h1>CSS animation-delay Property</h1>
+<p>The animation-delay property specifies a delay for the start of an animation. The following example has a 2 seconds delay before starting the animation:</p>
+<div></div>
+
+</body>
+</html>
+
+ 

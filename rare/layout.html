@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test 2-Layouts</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body { margin: 0; font-family: Arial, sans-serif; }
+
+        h1 { text-align: center; }
+
+        /* Flex containers */
+        .container1, .container2 { display: flex; }
+
+        /* Section titles */
+        .title {
+            background-color: white;
+            color: black;
+            font-size: large;
+            text-align: left;
+            padding: 5px;
+        }
+
+        /* Shared header/footer look */
+        .header1, .footer1,
+        .header2, .footer2,
+        .header3, .footer3 {
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        .header1, .footer1 { background-color: green; }
+        .header2, .footer2 { background-color: rgba(97, 77, 200, 0.818); }
+        .header3, .footer3 { background-color: rgba(18, 151, 223, 0.818); }
+
+        /* Single column */
+        .main {
+            background-color: rgb(214, 238, 214);
+            text-align: center;
+            padding: 80px;
+        }
+
+        /* Three column */
+        .left, .content, .right {
+            width: 33.33%;
+            padding: 60px;
+            color: black;
+        }
+        .left    { background-color: rgb(237, 211, 171); }
+        .content { background-color: rgb(227, 171, 237); }
+        .right   { background-color: rgb(125, 212, 223); }
+
+        /* Sidebar layout */
+        .sidebar {
+            width: 30%;
+            padding: 60px;
+            background-color: rgb(166, 166, 167);
+        }
+        .contentarea {
+            width: 70%;
+            padding: 60px;
+            background-color: rgb(234, 233, 176);
+        }
+        .spacer { margin-top: 40px; }
+
+        /* Navigation layout */
+        .nav {
+            display: flex;
+            justify-content: center;
+            width: 20%;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            background-color: rgba(49, 167, 178, 0.582);
+        }
+
+        /* Grid layout */
+        .container3 {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            padding: 10px;
+        }
+        .cell {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(133, 182, 225);
+            cursor: pointer;
+            font-size: 40px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container1, .container2 { flex-direction: column; }
+
+            .left, .content, .right,
+            .sidebar, .contentarea, .nav { width: 100%; }
+
+            .container3 {
+                grid-template-columns: repeat(2, 100px);
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header><h1>CSS-LAYOUT</h1></header>
+
+    <div class="title"><h3>Single Column Layout</h3></div>
+    <div class="header1"><h3>Header</h3></div>
+    <div class="main"><h3>Main Content</h3></div>
+    <div class="footer1"><h3>Footer</h3></div>
+
+    <div class="title"><h3>Three Column Layout</h3></div>
+    <div class="header2"><h3>Header</h3></div>
+    <div class="container2">
+        <div class="left"><h3>Left</h3></div>
+        <div class="content"><h3>Content</h3></div>
+        <div class="right"><h3>Right</h3></div>
+    </div>
+    <div class="footer2"><h3>Footer</h3></div>
+
+    <div class="spacer"></div>
+    <div class="header3"><h3>Header</h3></div>
+    <div class="container1">
+        <div class="sidebar"><h3>Sidebar</h3></div>
+        <div class="contentarea"><h3>Content Area</h3></div>
+    </div>
+    <div class="footer3"><h3>Footer</h3></div>
+
+    <div class="title"><h3>Navigation Layout</h3></div>
+    <div class="container2">
+        <div class="nav"><h4>Home</h4></div>
+        <div class="nav"><h4>About</h4></div>
+        <div class="nav"><h4>Services</h4></div>
+        <div class="nav"><h4>Gallery</h4></div>
+        <div class="nav"><h4>Contact</h4></div>
+    </div>
+    <div class="footer3"></div>
+
+    <div class="title"><h3>Grid Layout</h3></div>
+    <div class="container3">
+        <div class="cell">A</div>
+        <div class="cell">B</div>
+        <div class="cell">C</div>
+        <div class="cell">D</div>
+        <div class="cell">E</div>
+        <div class="cell">F</div>
+        <div class="cell">G</div>
+        <div class="cell">H</div>
+        <div class="cell">I</div>
+        <div class="cell">J</div>
+        <div class="cell">K</div>
+        <div class="cell">L</div>
+    </div>
+</body>
+</html>

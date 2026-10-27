@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop the Balloon Game</title>
+
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial;
+        }
+
+        #board{
+            width:300px;
+            margin:auto;
+            display:grid;
+            grid-template-columns:repeat(3,100px);
+            grid-template-rows:repeat(3,100px);
+        }
+
+        .cell{
+            border:1px solid black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:40px;
+            cursor:pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h2>Score : <span id="score">0</span></h2>
+
+<div id="board">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+</div>
+
+<h2 id="message"></h2>
+
+<script>
+
+let cells = document.querySelectorAll(".cell");
+let score = 0;
+let current = -1;
+
+// Function to display balloon
+function showBalloon(){
+
+    if(current!=-1){
+        cells[current].textContent="";
+    }
+
+    current = Math.floor(Math.random()*9);
+
+    cells[current].textContent="🎈";
+}
+
+// Move balloon every second
+let timer = setInterval(showBalloon,1000);
+
+showBalloon();
+
+// Click event
+cells.forEach(function(cell,index){
+
+    cell.onclick=function(){
+
+        if(index==current){
+
+            cells[current].textContent="💥";
+
+            score++;
+            document.getElementById("score").textContent=score;
+
+            current=-1;
+        }
+
+    };
+
+});
+
+// End game after 30 seconds
+setTimeout(function(){
+
+    clearInterval(timer);
+
+    if(current!=-1){
+        cells[current].textContent="";
+    }
+
+    document.getElementById("message").textContent =
+    "Game Over! Final Score = " + score;
+
+},30000);
+
+</script>
+
+</body>
+</html>

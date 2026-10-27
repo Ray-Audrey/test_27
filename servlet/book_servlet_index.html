@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Management</title>
+</head>
+<body>
+
+    <h2>Book Management</h2>
+
+    <h3>Insert Book</h3>
+    <form action="BookServlet" method="post">
+        ID: <input type="text" name="id" required><br><br>
+        Title: <input type="text" name="title" required><br><br>
+        Author: <input type="text" name="author" required><br><br>
+
+        <button type="submit" name="action" value="insert">
+            Insert
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>Delete Book</h3>
+    <form action="BookServlet" method="post">
+        ID: <input type="text" name="id" required><br><br>
+
+        <button type="submit" name="action" value="delete">
+            Delete
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>Update Book</h3>
+    <form action="BookServlet" method="post">
+        Old ID: <input type="text" name="oldId" required><br><br>
+        New ID: <input type="text" name="id" required><br><br>
+        Title: <input type="text" name="title" required><br><br>
+        Author: <input type="text" name="author" required><br><br>
+
+        <button type="submit" name="action" value="update">
+            Update
+        </button>
+    </form>
+
+    <hr>
+
+    <h3>View All Books</h3>
+    <form action="BookServlet" method="get">
+        <button type="submit">
+            View All Books
+        </button>
+    </form>
+
+</body>
+</html>

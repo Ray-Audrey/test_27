@@ -1,0 +1,149 @@
+user-service (port 8081)
+
+application.properties
+
+properties
+spring.application.name=user-service
+server.port=8081
+spring.data.mongodb.uri=mongodb://localhost:27017/UserDB
+
+model/User.java
+
+java
+package org.example.userservice.model;
+
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
+@Document(collection = "Users")
+public class User {
+    @Id
+    private String id;
+    private String name;
+    private String email;
+}
+
+repository/UserRepository.java
+
+java
+package org.example.userservice.repository;
+
+import org.example.userservice.model.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UserRepository extends MongoRepository<User, String> {
+}
+
+controller/UserController.java
+
+java
+package org.example.userservice.controller;
+
+import org.example.userservice.model.User;
+import org.example.userservice.repository.UserRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    private final UserRepository repo;
+
+    public UserController(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping
+    public List<User> getAll() {
+        return repo.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public User getOne(@PathVariable String id) {
+        return repo.findById(id).orElse(null);
+    }
+
+    @PostMapping
+    public User create(@RequestBody User u) {
+        return repo.save(u);
+    }
+}
+order-service (port 8082)
+
+application.properties
+
+properties
+spring.application.name=order-service
+server.port=8082
+spring.data.mongodb.uri=mongodb://localhost:27017/OrderDB
+
+model/Order.java
+
+java
+package org.example.orderservice.model;
+
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
+@Document(collection = "Orders")
+public class Order {
+    @Id
+    private String id;
+    private String item;
+    private String userId;   // refers to a user in user-service (no join, just the id)
+}
+
+repository/OrderRepository.java
+
+java
+package org.example.orderservice.repository;
+
+import org.example.orderservice.model.Order;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface OrderRepository extends MongoRepository<Order, String> {
+}
+
+controller/OrderController.java
+
+java
+package org.example.orderservice.controller;
+
+import org.example.orderservice.model.Order;
+import org.example.orderservice.repository.OrderRepository;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+    private final OrderRepository repo;
+    private final RestTemplate rest = new RestTemplate();
+
+    public OrderController(OrderRepository repo) {
+        this.repo = repo;
+    }
+
+    @PostMapping
+    public Order create(@RequestBody Order o) {
+        return repo.save(o);
+    }
+
+    @GetMapping("/{id}")
+    public Map<String, Object> getOne(@PathVariable String id) {
+        Order order = repo.findById(id).orElseThrow();
+
+        // call the other microservice using the stored userId
+        Map user = rest.getForObject("http://localhost:8081/users/" + order.getUserId(), Map.class);
+
+        return Map.of("order", order, "user", user);
+    }
+}
+Test it
